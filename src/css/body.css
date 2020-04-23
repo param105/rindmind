@@ -1,0 +1,58 @@
+
+.myBody{
+ background-color: white;
+}
+
+.myBody img {
+    width: 100%;
+}
+
+
+h2 {
+    padding: 1em;
+   font-size: 1.5rem;
+   color: #212614;
+}
+
+.column{
+    color :black;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.col {  
+    padding: 1em;
+}
+
+.col-bg {
+    background-color: #95978f;
+    margin-bottom: 1em;
+}
+
+.col-1 {
+    width: 25%;
+}
+
+.col-2 {
+    width: 50%;
+
+}
+
+.col-3 {
+    width: 75%;
+}
+
+@media (max-width:600px){
+    .column{
+        color :black;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .col-1 ,
+    .col-2 ,
+    .col-3 {
+        width: 100%;
+    }
+}

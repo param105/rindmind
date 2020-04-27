@@ -6,7 +6,7 @@ function MyHeader(){
         <nav class= "myNavBar">
           <div>
             <header class="App-header"> <span>R</span>ind<span>M</span>ind </header>
-            <div class="tagline"> The Spiritual Technocrats </div>
+            <div class="tagline"> The Spiritual Technocrat </div>
           </div>
           <div>
             <ul >      

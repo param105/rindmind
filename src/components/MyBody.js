@@ -1,23 +1,34 @@
 import React from 'react';
 import '../css/body.css';
-import newsData from "../data/Data.js"
+//import newsData from "../data/Data.js"
 
-function MyBody(){
-    let newsArray = newsData;
-    console.log(newsData)
-    const articles = newsData.map(news => 
-        <Article class = { news.class } 
-                title = { news.title }
-                img = { news.img }
-                para = { news.para }
-        />
-    )
+function MyBody(props){
+    let newsData = props.newsJsonSting;
+    console.log("Data received is : " + newsData)
+    let articles;
+    if(newsData != null){
+        try{
+            let newsJson = JSON.parse(newsData);
+            let newsList = newsJson.articles;
+            articles = newsList.map(article => 
+                <Article class = { "col col-1" } 
+                        title = { article.title }
+                        img = { article.urlToImage }
+                        para = { article.description }
+                />
+            )
+        }catch{
+            
+        }
+       
+    }
+   
 
     return(
         <div>
             <main class="myBody">
                 <img src="https://source.unsplash.com/1600x400/?laptop"></img>
-
+{/* 
                 <div class="column">
                     <Article 
                         class="col col-1"
@@ -72,7 +83,7 @@ function MyBody(){
                         img = "https://source.unsplash.com/800x200/?cycle"
                         para = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae reiciendis in sequi, repellat maxime dolorem at veniam, perferendis odit atque cumque. Incidunt totam hic placeat recusandae dolore amet tenetur maxime!"
                     />
-                </div>
+                </div> */}
                 <div class="grid-container">
                     { 
                        articles 
@@ -85,9 +96,15 @@ function MyBody(){
     );
 }
 
+function openNewsDialog(){
+    return ({
+        
+    });
+}
+
 function Article(props){
     return(
-        <div class={props.class}>
+        <div class={props.class} onClick = {openNewsDialog}>
             <h2>{props.title} </h2>
             <img src={props.img} />
             <p class="para">{props.para}</p>

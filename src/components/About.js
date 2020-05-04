@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {ProgressBar} from 'react-bootstrap';
 import axios from 'axios';
+import "../css/About.css"
 
 export class About extends Component {
 
@@ -44,32 +45,11 @@ export class About extends Component {
   render() {
     const {uploadPercentage} = this.state;
     return (
-      <div className="card card-user">
-        <div className="image">
-          <img src={this.props.bgImage} alt="..." />
-        </div>
-        <div className="content">
-          <div className="author">
-            <a href="#pablo">
-              <img
-                className="avatar border-gray"
-                src={this.state.avatar}
-                alt="..."
-              />
-              <input type="file" className="form-control profile-pic-uploader" onChange={this.uploadFile} />
+      <div className="uploadbox">     
+            <a href="#">
+              <input type="file" className="form-control file-uploader" onChange={this.uploadFile} />
               { uploadPercentage > 0 && <ProgressBar now={uploadPercentage} active label={`${uploadPercentage}%`} /> }
-
-              <h4 className="title">
-                {this.props.name}
-                <br />
-                <small>{this.props.userName}</small>
-              </h4>
             </a>
-          </div>
-          <p className="description text-center">{this.props.description}</p>
-        </div>
-        <hr />
-        <div className="text-center">{this.props.socials}</div>
       </div>
     );
   }

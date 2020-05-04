@@ -1,40 +1,44 @@
 import React, { Component } from 'react';
+import {
+  Route,
+  NavLink,
+  HashRouter
+} from "react-router-dom";
 import './css/App.css';
-import MyHeader from './components/MyHeader.js';
-import MyBody from './components/MyBody.js';
+import Home from './components/Home.js';
 import MyFooter from './components/MyFooter.js';
-import { render } from '@testing-library/react';
+import About from './components/About.js';
 
 class App extends Component {
 
-  constructor(props){
-    super(props);
-    this.state={
-      newsData :[],
-      isLoaded : false
+    render(){
+      return (
+        <div className="App">              
+          <HashRouter>
+            <nav class= "myNavBar">
+              <div>
+                <header class="App-header"> <span>R</span>ind<span>M</span>ind </header>
+                <div class="tagline"> The Spiritual Technocrat </div>
+              </div>
+              <div>
+                <ul >      
+                  <li><a  target="_blank" href="https://paramsir.github.io/"> Recent Posts  </a></li>
+                  <li><NavLink to="/about"> about </NavLink></li>
+                  <li><NavLink to="/"> Home </NavLink></li>
+                </ul>
+              </div>
+            </nav>
+            <div className="content">
+                  <Route exact path="/" component={ Home }/>
+                  <Route path="/about" component={ About }/>            
+              </div>
+          </HashRouter>
+          <MyFooter />
+    
+        </div>
+    
+      );
     }
-  }
-
-  async componentDidMount(){
-    const url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=de63571ebc714ae6828e37c65bb712bf";
-    const response = await fetch(url);
-    const data = await response.json();
-    this.setState({newsData: JSON.stringify(data)})
-    console.log(this.state.newsData)  
-  };
-
-
-  render(){
-    return (
-      <div className="App">     
-        <MyHeader />
-        <MyBody newsJsonSting = {this.state.newsData}/>
-        <MyFooter />
-  
-      </div>
-  
-    );
-  }
   }
 
 

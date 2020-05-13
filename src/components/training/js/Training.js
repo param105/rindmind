@@ -5,12 +5,9 @@ import Task1 from "../js/Task1.js";
 function Training() {
 
     return (
-      <div className='container'>   
-        <h1> Training Sessions </h1>
-        <div>
+      <React.Fragment>    
           <Task1 />
-       </div>
-      </div>
+      </React.Fragment>
      
     );
   

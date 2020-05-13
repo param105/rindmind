@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -13,14 +13,16 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import LaptopChromebookIcon from '@material-ui/icons/LaptopChromebook';
 import MailIcon from '@material-ui/icons/Mail';
 import NewReleases from '@material-ui/icons/NewReleases'
 import Home from '../../home/js/Home'
 import Training from '../../training/js/Training';
+import { red } from '@material-ui/core/colors';
+
 
 const drawerWidth = 240;
 
@@ -84,9 +86,12 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         padding: theme.spacing(0),
     },
-    link:{
-        textDecoration : 'none',
-        color : theme.palette.text.primary
+    link: {
+        textDecoration: 'none',
+        color: theme.palette.text.primary
+    },
+    span:{
+        color: red
     }
 }));
 
@@ -127,11 +132,11 @@ export default function ResponsiveDrawer() {
                         </IconButton>
                         <div>
                             <Typography variant="h4">
-                                <span>R</span>ind<span>M</span>ind
-              </Typography>
-                            <Typography color="textSecondary" variant="h6">
+                                <span className={classes.span}>R</span>ind<span className={classes.span}>M</span>ind
+                            </Typography>
+                            <Typography color="textSecondary" variant="subtitle">
                                 The Spiritual Technocrat
-              </Typography>
+                            </Typography>
 
                         </div>
                     </Toolbar>
@@ -155,7 +160,7 @@ export default function ResponsiveDrawer() {
                         </IconButton>
                     </div>
                     <Divider />
-                    <Link to="/" className = {classes.link}>
+                    <Link to="/" className={classes.link}>
                         <MenuList >
                             <MenuItem button key="News">
                                 <ListItemIcon>{< NewReleases />} </ListItemIcon>
@@ -164,26 +169,26 @@ export default function ResponsiveDrawer() {
                         </MenuList>
                     </Link>
                     <Divider />
-                    <Link to="/training" className = {classes.link}>
-                    <MenuList>
-                        <MenuItem button key="Training">
-                            <ListItemIcon>{< MailIcon />} </ListItemIcon>
-                            <ListItemText primary="Training" />
-                        </MenuItem>
-                    </MenuList>
+                    <Link to="/training" className={classes.link}>
+                        <MenuList>
+                            <MenuItem button key="Training">
+                                <ListItemIcon>{< LaptopChromebookIcon />} </ListItemIcon>
+                                <ListItemText primary="Training" />
+                            </MenuItem>
+                        </MenuList>
                     </Link>
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
 
-                        <Switch>
-                            <Route exact path ="/">
-                                <Home/>
-                            </Route>
-                            <Route exact path ="/training">
-                                <Training/>
-                            </Route>
-                        </Switch>
+                    <Switch>
+                        <Route exact path="/">
+                            <Home />
+                        </Route>
+                        <Route exact path="/training">
+                            <Training />
+                        </Route>
+                    </Switch>
 
                 </main>
             </div>

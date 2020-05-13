@@ -1,7 +1,6 @@
 import React, {useState, Fragment, Component} from 'react';
-import '../css/body.css';
 import ReactModal from 'react-modal'
-import { render } from '@testing-library/react';
+import '../scss/home.scss';
 
 class Home extends Component{
 
@@ -13,7 +12,10 @@ class Home extends Component{
         }
       }
 
-    async componentDidMount(){
+      /***
+       * this is async await implementation of getting data from api
+       */
+    async fetchAndSetData(){
         const url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=de63571ebc714ae6828e37c65bb712bf";
         const response = await fetch(url);
         const data = await response.json();
@@ -21,10 +23,29 @@ class Home extends Component{
         console.log(this.state.newsData)  
       };
    
+
+      /***
+       * This is promise implementation of getting data form the Api
+       */
+     componentDidMount(){
+        const url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=de63571ebc714ae6828e37c65bb712bf";
+        fetch(url)
+            .then(response => response.json())
+            .then(data =>{
+                this.setState({newsData: JSON.stringify(data)})
+                console.log(this.state.newsData)  
+            })
+            .catch(error =>{
+                console.log(error) 
+            })
+        
+      };
+   
+
     render(){
         let articles = this.generateArticalArray()
         return(
-            <div>
+            <div id="home" >
                 <main class="myBody">
                     <img src="https://source.unsplash.com/1600x400/?laptop"></img>
                     <div class="grid-container">

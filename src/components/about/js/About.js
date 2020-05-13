@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {ProgressBar} from 'react-bootstrap';
 import axios from 'axios';
-import "../css/About.css"
+import "../scss/About.scss"
 
 export class About extends Component {
 

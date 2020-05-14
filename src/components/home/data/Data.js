@@ -45,6 +45,6 @@ const newsData = [
         img : "https://source.unsplash.com/800x200/?cycle",
         para : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae reiciendis in sequi, repellat maxime dolorem at veniam, perferendis odit atque cumque. Incidunt totam hic placeat recusandae dolore amet tenetur maxime!"
     }
-]
+];
 
 export default newsData;

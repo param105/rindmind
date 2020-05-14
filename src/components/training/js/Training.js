@@ -1,16 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import "../scss/Training.scss";
 import Task1 from "../js/Task1.js";
+import Task2 from "../../training/js/task2/Task2.js";
 
-function Training() {
-
+export default function Training() {
     return (
-      <React.Fragment>    
-          <Task1 />
-      </React.Fragment>
+      <div>  
+        <Task2 />
+        <Task1 />
+      </div>
      
     );
   
 }
-
-export default Training;

@@ -5,15 +5,27 @@ export default function EmpTable(props) {
     const empArray = props.empList;
     const [empList, setEmpList] = useState(empArray)
     const [inputVisible, setInputVisible] = useState(false)
-    const [emp, setEmp] = useState({name:'',mobile:'',domain:''})
+    const [emp, setEmp] = useState({id:"",name:'',mobile:'',domain:''})
 
     function handleButtonClick() {
        if(inputVisible && emp.name && emp.domain && emp.mobile){
-        setEmpList([...empList,emp])
+          let size = empList.size;
+        setEmpList([...empList,{
+            id:size,
+            name:emp.name,
+            mobile: emp.mobile,
+            domain: emp.domain
+        }])
         setEmp({})
        }
         setInputVisible(!inputVisible)
     }
+
+    function handleDelete(index){
+        console.log("id received is",index);
+        setEmpList(empList.filter(item => item.id !== index));
+    }
+
     function setEmpData(field,value){
         switch(field){
             case "name" : setEmp({...emp,name:value}) ; break;
@@ -32,6 +44,7 @@ export default function EmpTable(props) {
                         <th> Name </th>
                         <th> Mobile </th>
                         <th> Domain </th>
+                        <th> Action </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,6 +54,7 @@ export default function EmpTable(props) {
                                 <td> {emp.name} </td>
                                 <td> {emp.mobile} </td>
                                 <td> {emp.domain} </td>
+                                <td> <button onClick={(e)=>handleDelete(emp.id)} > delete </button> </td>
                             </tr>
                         ))
                     }

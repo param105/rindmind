@@ -3,6 +3,7 @@ import { Prev } from 'react-bootstrap/PageItem';
 
 export default function EmpTable(props) {
     const empArray = props.empList;
+    const [filterStr, setFilterStr] = useState("")
     const [empList, setEmpList] = useState(empArray)
     const [inputVisible, setInputVisible] = useState(false)
     const [emp, setEmp] = useState({id:"",name:'',mobile:'',domain:''})
@@ -36,8 +37,22 @@ export default function EmpTable(props) {
         console.log(`name = ${emp.name} , mobile = ${emp.mobile} , domain = ${emp.domain}`)
     }
 
+    function handleSearch(string){
+        console.log("search string received is -",string);
+        setFilterStr((Prev)=>string);
+    }
+
     return (
         <div>
+            {console.log(`filter string received ${filterStr}`)}
+            <div>
+                <input
+                className="table"
+                type="text"  
+                name = "Search"
+                placeholder="Search Name , mobile , domain"
+                onChange = {(e)=>handleSearch(e.target.value)}/>
+            </div>
             <table className="table">
                 <thead className="title">
                     <tr>
@@ -49,13 +64,16 @@ export default function EmpTable(props) {
                 </thead>
                 <tbody>
                     {
-                        empList.map((emp) => (
-                            <tr>
-                                <td> {emp.name} </td>
-                                <td> {emp.mobile} </td>
-                                <td> {emp.domain} </td>
-                                <td> <button onClick={(e)=>handleDelete(emp.id)} > delete </button> </td>
-                            </tr>
+                        
+                        empList.filter(item =>  item.name.toLowerCase().includes(filterStr.toLowerCase()) || item.mobile.toLowerCase().includes(filterStr.toLowerCase()) 
+                        || item.domain.toLowerCase().includes(filterStr.toLowerCase()) 
+                        ).map((emp) => (
+                                <tr>
+                                    <td> {emp.name} </td>
+                                    <td> {emp.mobile} </td>
+                                    <td> {emp.domain} </td>
+                                    <td> <button onClick={(e)=>handleDelete(emp.id)} > delete </button> </td>
+                                </tr>
                         ))
                     }
 
@@ -68,13 +86,9 @@ export default function EmpTable(props) {
                             </tr>
                         
                     }
-
-
-                    <button onClick={handleButtonClick}> ADD </button>
-
-
-                </tbody>
+                </tbody>  
             </table>
+            <button onClick={handleButtonClick}> ADD </button>
 
         </div>
 

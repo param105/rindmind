@@ -5,7 +5,7 @@ import Task2 from "../../training/js/task2/Task2.js";
 
 export default function Training() {
     return (
-      <div>  
+      <div >  
         <Task2 />
         <Task1 />
       </div>

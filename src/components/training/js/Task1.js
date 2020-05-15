@@ -17,8 +17,10 @@ import { Container } from "react-bootstrap";
 const useStyles = makeStyles((theme) => ({
 
     rootContainer:{
+        paddingTop:theme.spacing(3),
         padding: theme.spacing(1),
         margin: theme.spacing(0),
+        marginTop:theme.spacing(2),
     },
 
     table: {

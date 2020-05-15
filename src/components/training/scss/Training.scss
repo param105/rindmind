@@ -1,11 +1,24 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: gainsboro;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+$red-button-color: rgb(224, 15, 102);
+
+.training-root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: gainsboro;
+  text-align: center;
+  margin:0;
+  padding-bottom: 1rem;
+
+  h2{
+   padding: 1; 
+   margin: 0;
+  }
+
+  button{
+    padding: 0.5rem;
+    background-color: rgb(178, 178, 196);;
+
+  }
 }
 
   
@@ -15,26 +28,39 @@
     border-collapse: collapse;
     border: 3px solid #ddd;
     width: 100%;
+    padding: 1rem;
+
+      th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: #4CAF50;
+        color: white;
+      }
+    
+      tr:nth-child(even){background-color: #f2f2f2;}
+      
+      tr:hover {background-color: #ddd;}
+    
+      td{
+      border: 1px solid #ddd;
+      padding: 8px;
+      }
+
+      button{
+        padding: 0.5rem;
+        background-color:$red-button-color;
+    
+      }
+
+      input{
+        text-align: center;
+      }
   }
 
-  .table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: center;
-    background-color: #4CAF50;
-    color: white;
-  }
   
-  .table td{
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  .table tr:nth-child(even){background-color: #f2f2f2;}
-  
-  .table tr:hover {background-color: #ddd;}
   
  
   

@@ -20,7 +20,7 @@ function Task2() {
                 <h2> 2 - Add / Delete table value </h2>
                 <Switch>
                     <Route exact path="/training">
-                        <EmpTable empList={employees} callback={setEmp} />
+                        <EmpTable empArray={employees} callback={setEmp} />
                     </Route>
                     <Route exact path="/addemp">
                             <AddEmp callback={setEmp}/>

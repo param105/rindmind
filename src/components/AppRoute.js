@@ -12,7 +12,7 @@ import DashBoard from '../components/dashboard/js/Dashboard.js';
 
 export default function AppRoute() {
     return (      
-             <HashRouter>
+        <HashRouter>
           <nav class="myNavBar">
             <div>
               <header class="App-header"> <span>R</span>ind<span>M</span>ind </header>

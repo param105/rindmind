@@ -17,11 +17,14 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import LaptopChromebookIcon from '@material-ui/icons/LaptopChromebook';
+import Place from '@material-ui/icons/Place';
 import MailIcon from '@material-ui/icons/Mail';
 import NewReleases from '@material-ui/icons/NewReleases'
 import Home from '../../home/js/Home'
 import Training from '../../training/js/Training';
+import About from '../../about/js/About';
 import { red } from '@material-ui/core/colors';
+import AddEmp from '../../training/js/task2/AddEmp.js'
 
 
 const drawerWidth = 240;
@@ -90,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: 'none',
         color: theme.palette.text.primary
     },
-    span:{
+    span: {
         color: red
     }
 }));
@@ -177,16 +180,27 @@ export default function ResponsiveDrawer() {
                             </MenuItem>
                         </MenuList>
                     </Link>
+                    <Link to="/about" className={classes.link}>
+                        <MenuList>
+                            <MenuItem button key="About">
+                                <ListItemIcon>{< Place />} </ListItemIcon>
+                                <ListItemText primary="About" />
+                            </MenuItem>
+                        </MenuList>
+                    </Link>
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
-
                     <Switch>
                         <Route exact path="/">
                             <Home />
                         </Route>
                         <Route exact path="/training">
                             <Training />
+                        </Route>
+                       
+                        <Route exact path="/about">
+                            <About />
                         </Route>
                     </Switch>
 

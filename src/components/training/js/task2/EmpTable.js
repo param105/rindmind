@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import { Prev } from 'react-bootstrap/PageItem';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Training from '../Training.js'
-import AddEmp from '../task2/AddEmp.js'
+import {  Link } from 'react-router-dom';
+
 
 export default function EmpTable(props) {
     const empArray = props.empArray;
@@ -39,6 +37,7 @@ export default function EmpTable(props) {
             case "name": setEmp({ ...emp, name: value }); break;
             case "mobile": setEmp({ ...emp, mobile: value }); break;
             case "domain": setEmp({ ...emp, domain: value }); break;
+            default:setEmp({ ...emp }); 
         }
         console.log(`data received ${field} and ${value}`)
         console.log(`name = ${emp.name} , mobile = ${emp.mobile} , domain = ${emp.domain}`)
@@ -77,8 +76,8 @@ export default function EmpTable(props) {
 
                         empList.filter(item => item.name.toLowerCase().includes(filterStr.toLowerCase()) || item.mobile.toLowerCase().includes(filterStr.toLowerCase())
                             || item.domain.toLowerCase().includes(filterStr.toLowerCase())
-                        ).map((emp) => (
-                            <tr>
+                        ).map((emp,index) => (
+                            <tr key={index}>
                                 <td> {emp.name} </td>
                                 <td> {emp.mobile} </td>
                                 <td> {emp.domain} </td>

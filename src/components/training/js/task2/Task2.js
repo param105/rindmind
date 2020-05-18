@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import EmpTable from '../task2/EmpTable'
 import empData from '../../data/Data.js'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import "../../../training/scss/Training.scss";
 import AddEmp from '../task2/AddEmp.js'
 

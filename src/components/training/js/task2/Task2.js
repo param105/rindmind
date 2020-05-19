@@ -17,7 +17,7 @@ function Task2() {
     return (
         <Router>
             <div className="training-root">
-                <h2> 2 - Add / Delete table value </h2>
+                <h2> 2 - React Components and Nested Routing </h2>
                 <Switch>
                     <Route exact path="/training">
                         <EmpTable empArray={employees} callback={setEmp} />

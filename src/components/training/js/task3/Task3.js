@@ -3,7 +3,7 @@ import ProjectTable from '../task3/ProjectTable'
 
 function Task3() {
 
-    const url ="http://127.0.0.1:3333/projects/" 
+    const url ="http://127.0.0.1:3003/projects/" 
     const [projects, setProjects] = useState([])
 
     function addProject(emp) {
@@ -25,7 +25,7 @@ function Task3() {
 
     return (
        <div className="training-root">
-           <h2> 3 - AJAX / API call demo </h2>
+           <h2> 3 - Mock Json server demo </h2>
         <ProjectTable projectsArray= {projects} />
        </div>
                       

@@ -16,8 +16,9 @@ class Home extends Component{
        * this is async await implementation of getting data from api
        */
     async fetchAndSetData(){
+        var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
         const url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=de63571ebc714ae6828e37c65bb712bf";
-        const response = await fetch(url);
+        const response = await fetch(proxyUrl + url);
         const data = await response.json();
         this.setState({newsData: JSON.stringify(data)})
         console.log(this.state.newsData)  

@@ -21,6 +21,7 @@ export default function AddEmp(props) {
             case "name" : setEmp({...emp,name:value}) ; break;
             case "mobile" : setEmp({...emp,mobile:value}) ; break;
             case "domain" : setEmp({...emp,domain:value}) ; break;
+            default: setEmp({...emp})
         }
         console.log(`data received ${field} and ${value}`)
         console.log(`name = ${emp.name} , mobile = ${emp.mobile} , domain = ${emp.domain}`)

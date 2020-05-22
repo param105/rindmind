@@ -34,7 +34,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
+/***
+ * shows talble and HTML and CSS cmponent usage.
+ * mainly designed using material components
+ */
 function Task1() {
     const classes = useStyles();
     return (
@@ -98,7 +101,7 @@ function Task1() {
 
 
 /**
- * to draw select control
+ * to draw select control (dropdown)
  */
 function SelectControl() {
     const classes = useStyles();

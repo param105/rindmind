@@ -18,13 +18,13 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import LaptopChromebookIcon from '@material-ui/icons/LaptopChromebook';
 import Place from '@material-ui/icons/Place';
-import MailIcon from '@material-ui/icons/Mail';
-import NewReleases from '@material-ui/icons/NewReleases'
-import Home from '../../home/js/Home'
+
+import NewReleases from '@material-ui/icons/NewReleases';
+import Home from '../../home/js/Home';
 import Training from '../../training/js/Training';
 import About from '../../about/js/About';
 import { red } from '@material-ui/core/colors';
-import AddEmp from '../../training/js/task2/AddEmp.js'
+
 
 
 const drawerWidth = 240;

@@ -28,8 +28,9 @@ export default function Home() {
     const [newsData, setNewsData] = useState([]);
 
     async function fetchAndSetNews() {
+        var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
         const url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=de63571ebc714ae6828e37c65bb712bf";
-        const response = await fetch(url);
+        const response = await fetch(proxyUrl + url);
         const data = await response.json();
         setNewsData(JSON.stringify(data))
         console.log(newsData)

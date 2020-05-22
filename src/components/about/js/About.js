@@ -1,14 +1,37 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "../scss/About.scss"
 import { Button } from "@material-ui/core";
 
-export class About extends Component {
 
-  render() {
+const useFormInput=({initial=""})=>{
+    const [value, setValue] = useState("")
+    const handleChange = e =>{
+      console.log(`new value is ${value}`)
+      setValue(e.target.value)
+    }
+    return {
+      value,
+      onChange:handleChange
+    }
+}
 
+
+export default function About (props){
+    
+    const  name = useFormInput(""),
+      email = useFormInput(""),
+      reason = useFormInput("")
+    
+
+      function onSubmit(){
+        console.log("submit button clicked")
+        if( email ){
+          // email sending code comes here
+        }
+      }
+  
     return (
       <div className="about-container">
-
       <div className="profile-container">
         <div class="LI-profile-badge" data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="parmeshwar-c-5aa39523"><a class="LI-simple-link" href='https://in.linkedin.com/in/parmeshwar-c-5aa39523?trk=profile-badge'>Parmeshwar C.</a></div>
       </div>
@@ -24,33 +47,28 @@ export class About extends Component {
         <div className="form">
           <h3> Contact Here </h3>
           <input type="text"
-            name="name"
+           placeholder="Name"
+            {...name}
 
-            placeholder="Name"
           />
           <input type="text"
-            name="email"
-
+            {...email}
             placeholder="Email"
           />
 
           <textarea className="resizable-text"
-            type="texta"
-            name="reason"
-
+            {...reason}
             placeholder="Reason"
-
           />
           <button
-            name="reason"
+            name="submit"
             value="Submit"
+            onClick={()=>{onSubmit()}}
           >Submit</button>
 
         </div>
       </div>
 
     );
-  }
+  
 }
-
-export default About;

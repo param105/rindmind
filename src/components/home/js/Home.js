@@ -3,18 +3,30 @@ import ReactModal from 'react-modal'
 import '../scss/home.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import { Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core';
+import { red } from '@material-ui/core/colors';
 import { Card, CardActionArea, CardContent, CardMedia,Paper } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        margin: 2
+        margin: 2,
+        '&:hover': {
+            padding:1,
+         }
+
+    },
+    cardContent:{
+        '&:hover': {
+           
+         }
+      
     },
     paper: {
         padding: theme.spacing(2),
         textAlign: 'center',
         color: theme.palette.text.secondary,
+        
     },
     media: {
         height: 200,
@@ -42,17 +54,7 @@ export default function Home() {
 
     }
 
-    /***
-     * this is async await implementation of getting data from api
-     */
-    useEffect(() => {
-
-        fetchAndSetNews(); // using async await
-        //fetchAndSetNewsPromises()   // using promises
-    }, []);
-
-
-    /***
+      /***
      * This is promise implementation of getting data form the Api
      */
     function fetchAndSetNewsPromises() {
@@ -69,6 +71,20 @@ export default function Home() {
 
     };
 
+    /***
+     * this is async await implementation of getting data from api
+     */
+    useEffect(() => {
+        fetchAndSetNews(); // using async await
+        //fetchAndSetNewsPromises()   // using promises
+    }, []);
+
+
+  
+
+    /***
+     * creates array of artical components getting json data from state 
+     */
     function generateArticalArray() {
         let articles;
         console.log("Data received is : " + newsData)
@@ -85,8 +101,8 @@ export default function Home() {
                         originUrl={article.url}
                     />
                 )
-            } catch{
-
+            } catch(e){
+                console.log(e)
             }
 
         }
@@ -133,8 +149,8 @@ function Article(props) {
     return (
         <Grid item xs={12} sm={6} lg={4}>
 
-            <Card className={classes.root} onClick={() => setDialogIsOpen(true)}>
-                <CardActionArea>
+            <Card className={classes.root} elevation={5} onClick={() => setDialogIsOpen(true)}>
+                <CardActionArea className={classes.cardContent}>
                     <CardMedia
                         className={classes.media}
                         image={props.img}

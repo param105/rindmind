@@ -1,4 +1,5 @@
 $red-button-color: rgb(224, 15, 102);
+$green-button-color:rgb(15, 224, 15);
 
 .training-root {
   display: flex;
@@ -95,6 +96,18 @@ $red-button-color: rgb(224, 15, 102);
         text-align: center;
       }
   }
+
+   
+  .table-mobx {
+    @extend .table;
+      th { 
+        background-color: rgb(218, 13, 13);
+      }
+      button{
+        background-color:$green-button-color;
+      }
+  }
+
 
   
   

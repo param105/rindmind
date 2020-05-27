@@ -16,6 +16,7 @@ $color-voile : #4051b5;
 
     .edu-menu{
         display: flex;
+        flex-wrap: wrap;
         background-color: gainsboro;
         h2{
             color: $color-voile;
@@ -27,24 +28,45 @@ $color-voile : #4051b5;
 .data-grid{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     
 
-    button{
+    .CharCard{
+        flex:1;
         padding: 2rem;
         margin: 0.3rem;
         border: dashed thin;
-        font-size: 4rem;
+        font-size: 3rem;
         text-align: center;
         text-decoration: none;
         background-color: white;
-        size: 3rem;
-
+        border-radius: 1rem;
+     
         &:hover{
             border-color: $color-voile;
+        }
+
+        &:active{
+                border-color: $color-voile;
         }
 
 
     }
 
+}
+
+@media(max-width:600px){
+    .data-grid{
+        .CharCard{
+            flex: 1 1 30%;
+        }
+    }  
+}
+
+@media(max-width:400px){
+    .data-grid{
+        .CharCard{
+            flex: 1 1 40%;
+        }
+    }  
 }

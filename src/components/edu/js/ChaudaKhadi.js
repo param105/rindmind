@@ -6,10 +6,10 @@ function ChaudaKhadi(props) {
         <div className="data-grid">   
         {
              props.eduData.chars.map((char,index)=>
-                        <div>                    
-                            <button>{char.text}</button>
+                                        
+                            <button className="CharCard">{char.text}</button>
                                      
-                        </div>
+                       
                       
                  )
         }     

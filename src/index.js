@@ -5,14 +5,12 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import {Provider} from 'mobx-react'
-import BirdStore from './stores/BirdStore'
 
 ReactDOM.render(
-  <Provider BirdStore={BirdStore}>
+ 
     <React.StrictMode>
       <App />
-    </React.StrictMode>
-  </Provider>,
+    </React.StrictMode>,
   document.getElementById('root')
 );
 

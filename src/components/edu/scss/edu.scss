@@ -1,0 +1,50 @@
+$color-voile : #4051b5;
+
+.edu-root{
+    align-items: center;
+    background-color: white;
+   
+   
+    .edu-header{
+        display: flex;
+        justify-content: center;
+        background-color: gainsboro;
+        h1{
+            color: $color-voile;
+        }
+    }
+
+    .edu-menu{
+        display: flex;
+        background-color: gainsboro;
+        h2{
+            color: $color-voile;
+        }
+    }
+
+}
+
+.data-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+
+    button{
+        padding: 2rem;
+        margin: 0.3rem;
+        border: dashed thin;
+        font-size: 4rem;
+        text-align: center;
+        text-decoration: none;
+        background-color: white;
+        size: 3rem;
+
+        &:hover{
+            border-color: $color-voile;
+        }
+
+
+    }
+
+}

@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import '../css/App.css';
 import Home from '../components/home/js/Home.js';
-import About from '../components/about/js/About.js';
+import About from '../components/about/js/About';
 import Training from '../components/training/js/Training.js';
 import DashBoard from '../components/dashboard/js/Dashboard.js';
 

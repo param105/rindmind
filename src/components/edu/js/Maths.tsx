@@ -10,7 +10,7 @@ function Maths() {
         <div className="data-grid">   
         {
              maths.map((char,index)=>                                    
-                            <button className="CharCard">{char.text}</button>
+                            <button className="MathsCard">{char.text}</button>
                  )
         }     
                 

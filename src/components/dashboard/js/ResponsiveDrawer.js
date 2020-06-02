@@ -142,8 +142,8 @@ export default function ResponsiveDrawer() {
                             <Typography variant="h4">
                                 <span className={classes.span}>R</span>ind<span className={classes.span}>M</span>ind
                             </Typography>
-                            <Typography color="textSecondary" variant="subtitle1">
-                                The Spiritual Technocrat
+                            <Typography  variant="subtitle1">
+                                Mindful Technocrats 
                             </Typography>
 
                         </div>

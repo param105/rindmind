@@ -159,12 +159,27 @@ $color-voile : #4051b5;
     
     
         }
+
+        .MathsCard{
+            @extend .MCQCard;
+            &:hover{
+                border-color: red;
+                color: red;
+            }
+    
+            &:active{
+                    border-color: red;
+                    color: red;
+                    
+            }
+
+        }
 }
 
-@media(max-width:600px){
+@media(max-width:800px){
     .data-grid{
         .CharCard{
-            flex: 1 1 30%;
+            flex: 1 1 20%;
         }
         .MCQCard{
             flex : 1 1 40%;

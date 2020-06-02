@@ -160,7 +160,8 @@ $color-voile : #4051b5;
              border : 1px solid $color-voile;
             }
             ul{     
-                list-style: decimal;
+               
+                list-style-type: upper-alpha;
                 text-align: center;
                 li{
                     &:hover{

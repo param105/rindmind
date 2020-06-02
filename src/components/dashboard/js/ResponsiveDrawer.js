@@ -25,7 +25,7 @@ import NewReleases from '@material-ui/icons/NewReleases';
 import Home from '../../home/js/Home';
 import Training from '../../training/js/Training';
 import About from '../../about/js/About';
-import Education from '../../edu/js/Education';
+import Education from '../../edu/js/Education.tsx';
 
 
 

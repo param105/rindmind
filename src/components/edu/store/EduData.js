@@ -3,7 +3,7 @@ import {observable,decorate} from 'mobx';
 
 class EduData{
     
-        chars = [
+        characters = [
             {
                 "text": "अ",
                 "audio": "1-a"
@@ -407,6 +407,60 @@ class EduData{
             },
           
            
+        ]
+
+        mathsMCQ = [
+            {
+                "que": " 6 + 9 = ?",
+                "options": [69,16,19,15],
+                "ans":15
+            },
+            {
+                "que": "9 + 0 = ?",
+                "options": [9,90,19,900],
+                "ans":9
+            },
+            {
+                "que": "11 + 12 = ?",
+                "options": [13,31,23,32],
+                "ans":23
+            },
+            {
+                "que": "9 + 19 = ?",
+                "options": [20,28,29,39],
+                "ans":28
+            },
+            {
+                "que": "32 + 27 = ?",
+                "options": [37,57,73,59],
+                "ans":59
+            },
+            {
+                "que": "29 + 32 = ?",
+                "options": [52,61,71,59],
+                "ans":61
+            },
+            {
+                "que": "27 + 35 = ?",
+                "options": [57,52,62,75],
+                "ans":62
+            },
+            {
+                "que": "33 + 38 = ?",
+                "options": [70,78,71,61],
+                "ans":71
+            },
+            {
+                "que": "40 + 51 = ?",
+                "options": [90,91,81,71],
+                "ans":91
+            },
+            {
+                "que": "50 + 51 = ?",
+                "options": [501,551,101,100],
+                "ans":101
+            },
+            
         ]
   
     

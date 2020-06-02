@@ -1,22 +1,19 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import eduDataStore from '../store/EduData'
 
-function Maths(props) {
+function Maths() {
+
+    const {maths} = eduDataStore
+
     return (
         <div className="data-grid">   
         {
-             props.eduData.maths.map((char,index)=>
-                                        
+             maths.map((char,index)=>                                    
                             <button className="CharCard">{char.text}</button>
-                                     
-                       
-                      
                  )
         }     
                 
-            
-           
-            
         </div>
     )
 }

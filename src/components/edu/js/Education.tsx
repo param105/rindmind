@@ -1,18 +1,19 @@
 import React from 'react'
-import "../scss/edu.scss"
-
-import EduData from "../store/EduData"
-import ChaudaKhadi from "../js/ChaudaKhadi"
-import Words from "../js/Words"
-import Numbers from "../js/Numbers"
-import Maths from "../js/Maths"
-
-import { Provider } from 'mobx-react';
 import {
     Route,
     NavLink,
     HashRouter
 } from 'react-router-dom'
+import { Provider } from 'mobx-react';
+
+import "../scss/edu.scss"
+import EduData from "../store/EduData"
+import Words from "./Words"
+import Numbers from "./Numbers"
+import Maths from './Maths';
+import MCQTest from './MCQTest';
+import ChaudaKhadi from './ChaudaKhadi'
+
 
 
 export default function Education() {
@@ -25,21 +26,25 @@ export default function Education() {
                     </div>
                     <div >
                         <ul className="edu-menu">
-                            <li class="tooltip" >
-                                <span class="tooltiptext"> <ChaudaKhadi /> </span>
+                            <li className="tooltip" >
+                                <span className="tooltiptext"> <ChaudaKhadi /> </span>
                                 <NavLink exact to="/"> चौदाखडी  </NavLink>
                             </li>
-                            <li class="tooltip" >
-                                <span class="tooltiptext"> <Words /> </span>
+                            <li className="tooltip" >
+                                <span className="tooltiptext"> <Words /> </span>
                                 <NavLink to="/chars" > शब्द ओळख  </NavLink>
                             </li>
-                            <li class="tooltip" >
-                                <span class="tooltiptext"> <Numbers /> </span>
+                            <li className="tooltip" >
+                                <span className="tooltiptext"> <Numbers /> </span>
                                 <NavLink to="/numbers"> अंक ओळख </NavLink>
                             </li>
-                            <li class="tooltip" >
-                                <span class="tooltiptext"> <Maths /> </span>
+                            <li className="tooltip" >
+                                <span className="tooltiptext"> <Maths /> </span>
                                 <NavLink to="/maths"> गणिते  </NavLink>
+                            </li>
+                            <li className="tooltip" >
+                                <span className="tooltiptext"> <MCQTest /> </span>
+                                <NavLink to="/mcq"> परीक्षा  </NavLink>
                             </li>
                         </ul>
                     </div>
@@ -48,6 +53,7 @@ export default function Education() {
                         <Route path="/chars" component={Words} />
                         <Route path="/numbers" component={Numbers} />
                         <Route path="/maths" component={Maths} />
+                        <Route path="/mcq" component={MCQTest} />
 
                     </div>
                 </div>

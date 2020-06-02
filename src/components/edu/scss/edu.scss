@@ -112,15 +112,63 @@ $color-voile : #4051b5;
                 
         }
 
-
+        ul{
+            
+            list-style: decimal;
+            li{
+                :hover{
+                    color: black;
+                }
+            }
+        }
     }
 
+        .MCQCard{
+            flex:1;
+            padding: 2rem;
+            margin: 0.3rem;
+            border: dashed thin;
+            font-size: 3rem;
+            text-align: center;
+            text-decoration: none;
+            background-color: white;
+            border-radius: 1rem;
+            min-width: 30%;
+    
+            .question{
+             border : 1px solid $color-voile;
+            }
+            ul{     
+                list-style: decimal;
+                text-align: center;
+                li{
+                    &:hover{
+                    
+                        border: 1px red dashed;
+                    }
+                }
+
+                .wrongAns{
+                    background-color: red;
+                }
+
+                .correctAns{
+                    background-color: green;
+                }
+            }
+    
+    
+        }
 }
 
 @media(max-width:600px){
     .data-grid{
         .CharCard{
             flex: 1 1 30%;
+        }
+        .MCQCard{
+            flex : 1 1 40%;
+           
         }
     }  
 }
@@ -129,6 +177,9 @@ $color-voile : #4051b5;
     .data-grid{
         .CharCard{
             flex: 1 1 40%;
+        }
+        .MCQCard{
+            flex : 1 1 100%;
         }
     }  
 }

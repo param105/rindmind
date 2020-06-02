@@ -1,11 +1,13 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import eduDataStore from '../store/EduData'
 
-function Numbers(props) {
+function Numbers() {
+    const {numbers} = eduDataStore
     return (
         <div className="data-grid">   
         {
-             props.eduData.numbers.map((number,index)=>
+            numbers.map((number,index)=>
                                         
                             <button className="CharCard">{number}</button>
                                                

@@ -1,11 +1,13 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import eduDataStore from '../store/EduData'
 
-function ChaudaKhadi(props) {
+function Words() {
+    const {words} = eduDataStore
     return (
         <div className="data-grid">   
         {
-             props.eduData.chars.map((char,index)=>
+            words.map((char,index)=>
                                         
                             <button className="CharCard">{char.text}</button>
                                      
@@ -21,4 +23,4 @@ function ChaudaKhadi(props) {
     )
 }
 
-export default inject('eduData') (observer(ChaudaKhadi))
+export default inject('eduData') (observer(Words))

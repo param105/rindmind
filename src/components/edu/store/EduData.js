@@ -1,5 +1,6 @@
 
 import {observable,decorate} from 'mobx';
+import { createContext } from "react"
 
 class EduData{
     
@@ -473,4 +474,4 @@ decorate(EduData,{
 
 const eduDataStore = new EduData()
 
-export default eduDataStore;
+export default createContext(eduDataStore);

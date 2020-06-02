@@ -1,9 +1,9 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import { inject, observer } from 'mobx-react'
 import eduDataStore from '../store/EduData'
 
 function Numbers() {
-    const {numbers} = eduDataStore
+    const {numbers} = useContext(eduDataStore)
     return (
         <div className="data-grid">   
         {
@@ -21,4 +21,4 @@ function Numbers() {
     )
 }
 
-export default inject('eduData') (observer(Numbers))
+export default  (observer(Numbers))

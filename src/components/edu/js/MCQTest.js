@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState ,useContext} from 'react'
 import { inject, observer } from 'mobx-react'
 import eduDataStore from '../store/EduData'
 
 function MCQtest() {
-    const { mathsMCQ } = eduDataStore
+    const { mathsMCQ } = useContext(eduDataStore)
     return (
         <div className="data-grid">
             {
@@ -49,4 +49,4 @@ function MCQTile(props) {
     )
 }
 
-export default inject('eduData')(observer(MCQtest))
+export default (observer(MCQtest))

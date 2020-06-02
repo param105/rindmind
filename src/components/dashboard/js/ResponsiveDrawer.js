@@ -205,7 +205,11 @@ export default function ResponsiveDrawer() {
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
                     <Switch>
+
                         <Route exact path="/">
+                            <Home />
+                        </Route>
+                        <Route exact path="/rindmind">
                             <Home />
                         </Route>
                         <Route exact path="/training">

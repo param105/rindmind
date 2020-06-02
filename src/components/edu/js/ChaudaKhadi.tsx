@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { inject, observer } from 'mobx-react'
 import eduDataStore from '../store/EduData'
 
 function ChaudaKhadi() {
-    const {characters} = eduDataStore
+    const {characters} =  useContext(eduDataStore) 
     return (
         <div className="data-grid">   
         {
@@ -17,4 +17,4 @@ function ChaudaKhadi() {
     )
 }
 
-export default inject('eduData') (observer(ChaudaKhadi))
+export default (observer(ChaudaKhadi))

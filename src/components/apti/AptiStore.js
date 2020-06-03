@@ -6,6 +6,7 @@ class AptiStore {
     sections = [
         {
             "name": "C/C++ Programming",
+            "outOfMarks":0,
             "marks": 0,
             "questions": [
                 {
@@ -22,6 +23,21 @@ class AptiStore {
                     "que": "Which operator is used to continue the definition of macro in the next line?",
                     "options": ["#", "##", "$", "\\"],
                     "ans": "\\"
+                },
+                {
+                    "que": "Choose the correct statement that is a combination of these two statements,:- Statement 1: char *p; Statement 2: p = (char*) malloc(100); ",
+                    "options": [
+                        "char p = *malloc(100);",
+                        "char *p = (char*)malloc(100);", 
+                        "char *p = (char) malloc(100);", 
+                        "None of the above"
+                    ],
+                        "ans": "char *p = (char*)malloc(100);"
+                },
+                {
+                    "que": "When overloading unary operators using Friend function,it requires_____ argument/s",
+                    "options": ["Zero", "One", "Two", "None of the above"],
+                    "ans": "One"
                 }
 
 
@@ -29,6 +45,7 @@ class AptiStore {
         },
         {
             "name": "Data Structure",
+            "outOfMarks":0,
             "marks": 0,
             "questions": [
                 {
@@ -52,6 +69,24 @@ class AptiStore {
                     ],
                     "ans": "Deleting a node whose location is given"
                 },
+                {
+                    "que": "Convert the infix to postfix for A-(B+C)*(D/E)",
+                    "options": [
+                        "ABC+DE/*+",
+                        "ABC+DE/*-", 
+                        "ABC+DE*/-", 
+                        "None of the above"],
+                    "ans": "ABC+DE/*-"
+                },
+                {
+                    "que": "The time complexities of the three algorithms are given. Which should execute the slowest for large values of N?",
+                    "options": [
+                     "O(N^1/2)",
+                     "O(N)", 
+                     "O(log n)",
+                     "None of the above"],
+                    "ans": "O(log n)"
+                },
 
 
             ]
@@ -59,6 +94,19 @@ class AptiStore {
 
     ]
 
+    get getTotalOutOfMarks(){
+        let totalOutOf =0;
+        this.sections.map((section,index)=> {
+             section.outOfMarks = 0;
+        })
+        this.sections.map((section,sectionindex)=>{
+            section.questions.map((question,index)=>{
+                totalOutOf +=2;
+                this.sections[sectionindex].outOfMarks +=2;
+            })
+        })
+        return totalOutOf;
+    }
 
     get getTotalMarks() {
         let totalMarks =0;
@@ -68,6 +116,7 @@ class AptiStore {
 
         return totalMarks;   
     }
+
 
     addMarks(sectionIndex){
         this.sections[sectionIndex].marks +=2;
@@ -79,7 +128,9 @@ class AptiStore {
     {
         sections: observable,
         addmarks: action,
-        getTotalMarks: computed
+        getTotalMarks: computed,
+        getTotalOutOfMarks:computed,
+        
     }
 )
 

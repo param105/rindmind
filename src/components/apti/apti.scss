@@ -43,9 +43,17 @@
                    padding:1rem;
 
                    &:hover{
-                       background-color:darkkhaki ;
+                      border:1px red dashed;
                    }
+                
                 }
+                .wrong-option{
+                    background-color:red ;
+                   }
+
+                   .correct-option{
+                    background-color:green ;
+                   }
             }
 
         }

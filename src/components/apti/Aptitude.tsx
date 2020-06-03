@@ -56,7 +56,7 @@ const Marks= observer(()=>{
         
         <div className="marks">
 
-            <h2 > {aptiStore.getTotalMarks} / 100 </h2>
+    <h2 > {aptiStore.getTotalMarks} / {aptiStore.getTotalOutOfMarks} </h2>
 
         </div>)
 })
@@ -99,7 +99,7 @@ const ExamSection = observer((props:any)=>{
             <div onClick={handleHeaderClick} className="section-header">
                 <h3> {props.section.name} </h3>
                 <div className="marks">
-                    <h3 > {apti.sections[props.index].marks} / 10 </h3>
+                    <h3 > {apti.sections[props.index].marks} / {apti.sections[props.index].outOfMarks} </h3>
                 </div>
             </div>
             <div className="section-questions">
@@ -127,12 +127,11 @@ function ExamQuestion(props: any) {
     const [selected, setSelected] = useState({"answer":"","index":""})
 
     function handleOptionSelected(option:any,index:any){
-    
-        setSelected({"answer": option,"index":index})
-       
-        if(option == props.question.ans){
+      
+        if(selected.answer =="" && option == props.question.ans){
             props.callback()
         }
+        setSelected({"answer": option,"index":index})
 
     }
     return (
@@ -140,8 +139,18 @@ function ExamQuestion(props: any) {
         <li><h3> {props.question.que} </h3></li>
         <ul>
             {
-                props.question.options.map((option: React.ReactNode, index: any) =>
-                    <li onClick={()=>handleOptionSelected(option,index)}> {option} </li>
+                props.question.options.map((option: React.ReactNode, index: any) =>{
+                    if(selected.answer != "" && selected.answer != props.question.ans && selected.index == index){
+                        return  <li className="wrong-option" onClick={()=>handleOptionSelected(option,index)}> {option} </li>
+                    }else if(selected.answer != "" && option == props.question.ans){
+                        return <li className="correct-option" onClick={()=>handleOptionSelected(option,index)}> {option} </li>
+                    }else{
+                        return <li onClick={()=>handleOptionSelected(option,index)}> {option} </li>
+                    }
+                }
+
+              
+                   
                 )
             }
         </ul>

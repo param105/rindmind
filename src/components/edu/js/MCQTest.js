@@ -1,5 +1,5 @@
 import React, { useState ,useContext} from 'react'
-import { inject, observer } from 'mobx-react'
+import { observer } from 'mobx-react'
 import eduDataStore from '../store/EduData'
 
 function MCQtest() {
@@ -16,6 +16,10 @@ function MCQtest() {
     )
 }
 
+/***
+ * Component creates single having a question and its options
+ * along with it hadles all its click events and actions 
+ */
 function MCQTile(props) {
 
     const [choice, setChoice] = useState({isSected:false,ans:""})

@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import { inject, observer } from 'mobx-react'
+import { observer } from 'mobx-react'
 import eduDataStore from '../store/EduData'
 
 function Words() {

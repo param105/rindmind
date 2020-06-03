@@ -1,0 +1,63 @@
+
+.apti-root{
+    display: flex;
+    flex-direction: column;
+
+    .apti-header{
+        display: flex;
+        justify-content: space-between;
+        background-color: darkkhaki;
+        flex-wrap: wrap;
+    }
+      
+    .section{
+        background-color: white;
+     
+        .section-header{
+            padding-left: 1rem;
+            padding-right: 1rem;
+            background-color: gainsboro;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .section-questions{
+            padding-left: 2rem;
+            padding-right: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .exam-question{
+            list-style-type: decimal-leading-zero;
+            ul{
+                width:60%;
+                list-style-type: upper-alpha;
+                display: flex;
+                flex: 1 1;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                li{
+                   width:50%;
+                   padding:1rem;
+                }
+            }
+
+        }
+
+        @media (max-width:600px) {
+            .exam-question{
+                ul{
+                    width:100%;
+                    li{
+                        width:100%
+                     }
+                }
+                
+            }
+        }
+    }
+
+
+}

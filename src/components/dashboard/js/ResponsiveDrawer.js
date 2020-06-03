@@ -17,6 +17,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import LaptopChromebookIcon from '@material-ui/icons/LaptopChromebook';
+import ExamSymbol from '@material-ui/icons/EmojiSymbols'
 import Pencil from '@material-ui/icons/Create';
 import Place from '@material-ui/icons/Place';
 import { red } from '@material-ui/core/colors';
@@ -26,6 +27,7 @@ import Home from '../../home/js/Home';
 import Training from '../../training/js/Training';
 import About from '../../about/js/About';
 import Education from '../../edu/js/Education.tsx';
+import Aptitude from "../../apti/Aptitude";
 
 
 
@@ -91,8 +93,8 @@ const useStyles = makeStyles((theme) => ({
     content: {
         flexGrow: 1,
         padding: theme.spacing(0),
-        alignItems:'center'
-       
+        alignItems: 'center'
+
     },
     link: {
         textDecoration: 'none',
@@ -142,8 +144,8 @@ export default function ResponsiveDrawer() {
                             <Typography variant="h4">
                                 <span className={classes.span}>R</span>ind<span className={classes.span}>M</span>ind
                             </Typography>
-                            <Typography  variant="subtitle1">
-                                Mindful Technocrats 
+                            <Typography variant="subtitle1">
+                                Mindful Technocrats
                             </Typography>
 
                         </div>
@@ -193,6 +195,16 @@ export default function ResponsiveDrawer() {
                             </MenuItem>
                         </MenuList>
                     </Link>
+
+                    <Link to='/apti' className={classes.link}>
+                        <MenuList>
+                            <MenuItem>
+                                <ListItemIcon> {<ExamSymbol />} </ListItemIcon>
+                                <ListItemText primary="Aptitude" />
+                            </MenuItem>
+                        </MenuList>
+                    </Link>
+
                     <Link to="/about" className={classes.link}>
                         <MenuList>
                             <MenuItem button key="About">
@@ -217,6 +229,9 @@ export default function ResponsiveDrawer() {
                         </Route>
                         <Route exact path="/edu">
                             <Education />
+                        </Route>
+                        <Route exact path="/apti">
+                            <Aptitude />
                         </Route>
                         <Route exact path="/about">
                             <About />

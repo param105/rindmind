@@ -4,7 +4,7 @@ import "../apti/apti.scss"
 import { observer } from 'mobx-react';
 import AptiStore from './AptiStore';
 
-function Aptitude() {
+export default function Aptitude() {
 
     return (
         <div className="apti-root">
@@ -50,17 +50,19 @@ function Timer() {
     )
 }
 
-function Marks() {
-    const [totalMarks, setTotalMarks] = useState(0)
-
+const Marks= observer(()=>{
+    const aptiStore = useContext(AptiStore)
     return (
+        
         <div className="marks">
-            <h2 > {totalMarks} / 100 </h2>
+
+            <h2 > {aptiStore.getTotalMarks} / 100 </h2>
 
         </div>)
-}
+})
 
-function ExamPaper() {
+
+const ExamPaper = observer(()=> {
 
     const [visible, setVisible] = useState(true)
     const apti = useContext(AptiStore)
@@ -72,17 +74,22 @@ function ExamPaper() {
         <div className="paper">
             {
                 apti.sections.map((sectionObj, index) =>
-                    <ExamSection section={sectionObj} />
+                    <ExamSection section={sectionObj} index={index} />
                 )
             }
 
         </div>
     )
-}
+})
 
-function ExamSection(props: any) {
+const ExamSection = observer((props:any)=>{
 
     const [visible, setVisible] = useState(true)
+    const apti = useContext(AptiStore)
+
+    function updateMarks(){
+        apti.addMarks(props.index)
+    }
 
     function handleHeaderClick() {
         setVisible(!visible)
@@ -92,7 +99,7 @@ function ExamSection(props: any) {
             <div onClick={handleHeaderClick} className="section-header">
                 <h3> {props.section.name} </h3>
                 <div className="marks">
-                    <h3 > 0 / 10 </h3>
+                    <h3 > {apti.sections[props.index].marks} / 10 </h3>
                 </div>
             </div>
             <div className="section-questions">
@@ -101,8 +108,7 @@ function ExamSection(props: any) {
                     <ul>
                         {
                             props.section.questions.map((question: any, index: any) =>
-                                <ExamQuestion question={question} />
-
+                                <ExamQuestion question={question} callback={()=>updateMarks()} />
                             )
                         }
 
@@ -113,20 +119,32 @@ function ExamSection(props: any) {
             </div>
         </div>
     )
-}
+})
+
 
 function ExamQuestion(props: any) {
+
+    const [selected, setSelected] = useState({"answer":"","index":""})
+
+    function handleOptionSelected(option:any,index:any){
+    
+        setSelected({"answer": option,"index":index})
+       
+        if(option == props.question.ans){
+            props.callback()
+        }
+
+    }
     return (
     <div className="exam-question">
         <li><h3> {props.question.que} </h3></li>
         <ul>
             {
                 props.question.options.map((option: React.ReactNode, index: any) =>
-                    <li> {option} </li>
+                    <li onClick={()=>handleOptionSelected(option,index)}> {option} </li>
                 )
             }
         </ul>
     </div>);
 }
 
-export default (observer(Aptitude))

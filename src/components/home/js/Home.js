@@ -44,14 +44,19 @@ export default function Home() {
       /***
        * this is async await implementation of getting data from api
        */
-    async fetchAndSetData(){
-        var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-        const url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=de63571ebc714ae6828e37c65bb712bf";
-        const response = await fetch(proxyUrl + url);
-        const data = await response.json();
-        this.setState({newsData: JSON.stringify(data)})
-        console.log(this.state.newsData)  
-      };
+      async function fetchAndSetNews() {
+        // var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        try {
+            const url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=de63571ebc714ae6828e37c65bb712bf";
+            const response = await fetch(url).catch(e => console.error("Error to fetch data"));
+            const data = await response.json().catch(e => console.error("Error to convert to JSON"));;
+            setNewsData(JSON.stringify(data))
+            console.log(newsData)
+        } catch (e) {
+            console.error(e)
+        }
+
+    }
    
 
       /***

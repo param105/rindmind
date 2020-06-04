@@ -46,21 +46,22 @@ export default function Home() {
        * this is async await implementation of getting data from api
        */
     async function fetchAndSetNews(){
-        try {
-          
+        let finalData = newsData;
+        try {          
             const url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=de63571ebc714ae6828e37c65bb712bf";
             const response = await fetch(url).catch(e => console.error("Error to fetch data"));
             const data = await response.json().catch(e => console.error("Error to convert to JSON"));;
            
-            if(data.status == "error"){
-                setNewsData(newsData)
-            }else{
-                setNewsData(JSON.stringify(data))
-            }    
-            console.log(newsData)
+            if(data.status == "ok"){
+                finalData = JSON.stringify(data)
+            }  
+          
         } catch (e) {
             console.error(e)
-            setNewsData(newsData)
+            finalData = newsData;
+        }finally{
+            setNewsData(finalData)
+            console.log(newsData)
         }
       };
    

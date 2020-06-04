@@ -178,15 +178,7 @@ export default function ResponsiveDrawer() {
                             </MenuItem>
                         </MenuList>
                     </Link>
-                    <Divider />
-                    <Link to="/training" className={classes.link}>
-                        <MenuList>
-                            <MenuItem button key="Training">
-                                <ListItemIcon>{< LaptopChromebookIcon />} </ListItemIcon>
-                                <ListItemText primary="Training" />
-                            </MenuItem>
-                        </MenuList>
-                    </Link>
+
                     <Link to="/edu" className={classes.link}>
                         <MenuList>
                             <MenuItem button key="edu">
@@ -210,6 +202,16 @@ export default function ResponsiveDrawer() {
                             <MenuItem button key="About">
                                 <ListItemIcon>{< Place />} </ListItemIcon>
                                 <ListItemText primary="About" />
+                            </MenuItem>
+                        </MenuList>
+                    </Link>
+                    <Divider />
+                    <Divider />
+                    <Link to="/training" className={classes.link}>
+                        <MenuList>
+                            <MenuItem button key="Training">
+                                <ListItemIcon>{< LaptopChromebookIcon />} </ListItemIcon>
+                                <ListItemText primary="Training" />
                             </MenuItem>
                         </MenuList>
                     </Link>

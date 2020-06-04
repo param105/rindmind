@@ -170,7 +170,7 @@ export default function ResponsiveDrawer() {
                         </IconButton>
                     </div>
                     <Divider />
-                    <Link to="/" className={classes.link}>
+                    <Link to="/rindmind" className={classes.link}>
                         <MenuList >
                             <MenuItem button key="News">
                                 <ListItemIcon>{< NewReleases />} </ListItemIcon>
@@ -220,9 +220,7 @@ export default function ResponsiveDrawer() {
                     <div className={classes.toolbar} />
                     <Switch>
 
-                        <Route exact path="/">
-                            <Home />
-                        </Route>
+                    
                         <Route exact path="/rindmind">
                             <Home />
                         </Route>

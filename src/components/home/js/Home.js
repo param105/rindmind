@@ -1,17 +1,46 @@
-import React, {useState, Fragment, Component} from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactModal from 'react-modal'
 import '../scss/home.scss';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import { Typography } from '@material-ui/core';
+import { red } from '@material-ui/core/colors';
+import { Card, CardActionArea, CardContent, CardMedia,Paper } from '@material-ui/core'
 
-class Home extends Component{
+const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+        margin: 2,
+        '&:hover': {
+            padding:1,
+         }
 
-    constructor(props){
-        super(props);
-        this.state={
-          newsData :[],
-          isLoaded : false
-        }
-      }
+    },
+    cardContent:{
+        '&:hover': {
+           
+         }
+      
+    },
+    paper: {
+        padding: theme.spacing(2),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+        
+    },
+    media: {
+        height: 200,
+    },
+}));
 
+/***
+ * shows news page in it and also it has popup dialog to see single news
+ */
+export default function Home() {
+    const classes = useStyles();
+    const [newsData, setNewsData] = useState([]);
+
+ 
       /***
        * this is async await implementation of getting data from api
        */
@@ -26,103 +55,138 @@ class Home extends Component{
    
 
       /***
-       * This is promise implementation of getting data form the Api
-       */
-     componentDidMount(){
+     * This is promise implementation of getting data form the Api
+     */
+    function fetchAndSetNewsPromises() {
         const url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=de63571ebc714ae6828e37c65bb712bf";
         fetch(url)
             .then(response => response.json())
-            .then(data =>{
-                this.setState({newsData: JSON.stringify(data)})
-                console.log(this.state.newsData)  
+            .then(data => {
+                setNewsData(JSON.stringify(data))
+                console.log(newsData)
             })
-            .catch(error =>{
-                console.log(error) 
+            .catch(error => {
+                console.log(error)
             })
-        
-      };
-   
 
-    render(){
-        let articles = this.generateArticalArray()
-        return(
-            <div id="home" >
-                <main class="myBody">
-                    <img src="https://source.unsplash.com/1600x400/?laptop"></img>
-                    <div class="grid-container">
-                        { 
-                           articles 
-                        }
-                    </div>
-                </main>
-    
-            </div>
-    
-        );
-    }
+    };
 
-    generateArticalArray() {
+    /***
+     * this is async await implementation of getting data from api
+     */
+    useEffect(() => {
+        fetchAndSetNews(); // using async await
+        //fetchAndSetNewsPromises()   // using promises
+    }, []);
+
+
+  
+
+    /***
+     * creates array of artical components getting json data from state 
+     */
+    function generateArticalArray() {
         let articles;
-        console.log("Data received is : " + this.state.newsData)
-           
-            if(this.state.newsData != null){
-                try{
-                    let newsJson = JSON.parse(this.state.newsData);
-                    let newsList = newsJson.articles;
-                    articles = newsList.map(article => 
-                        <Article class = { "col col-1" } 
-                                title = { article.title }
-                                img = { article.urlToImage }
-                                para = { article.description }
-                                originUrl = {article.url}
-                        />
-                    )
-                }catch{
-                    
-                }
-               
+        console.log("Data received is : " + newsData)
+
+        if (newsData != null) {
+            try {
+                let newsJson = JSON.parse(newsData);
+                let newsList = newsJson.articles;
+                articles = newsList.map((article, index) =>
+                    <Article key={index} class={"col col-1"}
+                        title={article.title}
+                        img={article.urlToImage}
+                        para={article.description}
+                        originUrl={article.url}
+                    />
+                )
+            } catch(e){
+                console.log(e)
             }
+
+        }
         return articles
     }
-    
+
+    return (
+
+        <div id="home" >
+            <main className="myBody">
+                <img src="https://source.unsplash.com/1600x400/?laptop" alt="Loading.."></img>
+
+                <div className={classes.root}>
+                    <Grid container spacing={3}>
+                        {
+                            generateArticalArray()
+                        }
+                    </Grid>
+                </div>
+            </main>
+
+        </div>
+
+
+
+    );
+
+
+
+
 }
 
-
-function Article(props){
-
+/***
+ * function component which renders single gird item in card. 
+ */
+function Article(props) {
+    const classes = useStyles();
     var closeDivStyle = {
-        float:"right"
+        float: "right"
     }
 
-    const[dialogIsOpen,setDialogIsOpen] = useState(false)
+    const [dialogIsOpen, setDialogIsOpen] = useState(false)
 
-    return(
-        <div class={props.class}>
-            <div onClick = {() => setDialogIsOpen(true)}>
-                <h2>{props.title} </h2>
-                <img src={props.img} />
-                <p class="para">{props.para}</p>
-            </div>
+    return (
+        <Grid item xs={12} sm={6} lg={4}>
 
-            <div>               
-                    <ReactModal isOpen={dialogIsOpen} 
-                                onRequestClose = {() => setDialogIsOpen(false)}> 
-                        <div style = { closeDivStyle}>
+            <Card className={classes.root} elevation={5} onClick={() => setDialogIsOpen(true)}>
+                <CardActionArea className={classes.cardContent}>
+                    <CardMedia
+                        className={classes.media}
+                        image={props.img}
+                        title="nop"
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            {props.title}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            {props.para}
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+            </Card>
+
+
+            <div>
+            
+                <ReactModal className="dialog" isOpen={dialogIsOpen}
+                    onRequestClose={() => setDialogIsOpen(false)}>
+                   
+                        <div style={closeDivStyle}>
                             <button
-                                class ="dialog-close-btn" 
-                                onClick={()=> setDialogIsOpen(false)}>
+                                className="dialog-close-btn"
+                                onClick={() => setDialogIsOpen(false)}>
                                 X
                             </button>
                         </div>
-                        <div class="dialog">
-                            <iframe class ="dialog" src={props.originUrl} />
-                        </div> 
-                       
-                    </ReactModal>  
-                               
+                        <div className="dialog">
+                            <iframe className="dialog" src={props.originUrl} />
+                        </div>   
+                </ReactModal>
+                
             </div>
-        </div>
+        </Grid>
     );
 }
 
-export default Home;

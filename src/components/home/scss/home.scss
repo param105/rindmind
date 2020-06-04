@@ -1,27 +1,27 @@
 
-#home .myBody{
+ .myBody{
  background-color: white;
 }
 
-#home .myBody img {
+ .myBody img {
     width: 100%;
 }
 
 
-#home h2 {
+ h2 {
     padding: 1em;
    font-size: 1.5rem;
    color: #212614;
 }
 
-#home .column{
+ .column{
     color :black;
     display: flex;
     justify-content: space-between;
 }
 
 
-#home .col {  
+ .col {  
     padding: 1em;
     margin: 1em;
     border-style: solid;
@@ -29,37 +29,39 @@
     box-shadow: 0px 20px 30px 3px rgba(0, 0, 0, 0.55)
 }
 
-#home .col-bg {
+ .col-bg {
     background-color: #c4c5bf;
     margin-bottom: 1em;
 }
 
-#home .col-1 {
+ .col-1 {
     width: 28%;
 }
 
-#home .col-2 {
+ .col-2 {
     width: 50%;
 
 }
 
-#home .col-3 {
+ .col-3 {
     width: 75%;
 }
 
-#home .dialog {
-    width: 100%;
+ .dialog {
+   display: flex;
+   justify-content: center;
+    width: 90%;
     height: 100%;
+    z-index: 1000;
 }
 
-#home .grid-container {
+ .grid-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
    
   }
 
-#home .dialog-close-btn {
+ .dialog-close-btn {
     height: 2em;
     width: 2em;  
     line-height: 2em;  
@@ -74,16 +76,16 @@
  
 
 @media (max-width:600px){
-    #home .column{
+     .column{
         color :black;
         display: flex;
         align-items: center;
         flex-direction: column;
     }
 
-    #home .col-1 ,
-    #home .col-2 ,
-    #home .col-3 {
+     .col-1 ,
+     .col-2 ,
+     .col-3 {
         width: 85%;
     }
 }

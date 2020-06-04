@@ -84,7 +84,6 @@ html {
   }
 
   .App-header {
-    background-color:black;
     padding-top: 0.2em;
     display: flex;
     justify-content: center;
@@ -96,7 +95,6 @@ html {
     display: flex;
     flex-direction: row-reverse;
     margin: auto;
-    background-color: black;
   
   }
 }

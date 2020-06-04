@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
 import { red } from '@material-ui/core/colors';
 import { Card, CardActionArea, CardContent, CardMedia,Paper } from '@material-ui/core'
-import newsData from '../data/Data'
+import news from '../data/Data'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -46,7 +46,7 @@ export default function Home() {
        * this is async await implementation of getting data from api
        */
     async function fetchAndSetNews(){
-        let finalData = newsData;
+        let finalData = JSON.stringify(news);
         try {          
             const url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=de63571ebc714ae6828e37c65bb712bf";
             const response = await fetch(url).catch(e => console.error("Error to fetch data"));
@@ -54,14 +54,15 @@ export default function Home() {
            
             if(data.status == "ok"){
                 finalData = JSON.stringify(data)
+                console.log("data received from api -"+finalData)
             }  
           
         } catch (e) {
             console.error(e)
-            finalData = newsData;
+            finalData = JSON.stringify(news);
         }finally{
             setNewsData(finalData)
-            console.log(newsData)
+            console.log("final data is -"+finalData)
         }
       };
    
@@ -99,7 +100,6 @@ export default function Home() {
      */
     function generateArticalArray() {
         let articles;
-        console.log("Data received is : " + newsData)
 
         if (newsData != null) {
             try {

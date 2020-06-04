@@ -1,4 +1,4 @@
-const newsData =
+const news =
     {
         "status": "ok",
         "totalResults": 38,
@@ -266,4 +266,4 @@ const newsData =
         ]
       };
 
-export default newsData;
+export default news;

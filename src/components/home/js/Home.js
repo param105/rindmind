@@ -60,6 +60,7 @@ export default function Home() {
             console.log(newsData)
         } catch (e) {
             console.error(e)
+            setNewsData(newsData)
         }
       };
    

@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -21,6 +21,7 @@ import ExamSymbol from '@material-ui/icons/EmojiSymbols'
 import Pencil from '@material-ui/icons/Create';
 import Place from '@material-ui/icons/Place';
 import { red } from '@material-ui/core/colors';
+import { voilet } from '@material-ui/core/colors';
 import NewReleases from '@material-ui/icons/NewReleases';
 
 import Home from '../../home/js/Home';
@@ -102,16 +103,30 @@ const useStyles = makeStyles((theme) => ({
     },
     span: {
         color: red
+    },
+    listItem:{
+        '&:hover':{
+            color : 'red'
+        },
+       
+    },
+    active:{
+        backgroundColor:'red'
     }
 }));
 
 export default function ResponsiveDrawer() {
     const classes = useStyles();
     const theme = useTheme();
+    const [selectedIndex,setSelectedIndex] = useState(0);
     const [open, setOpen] = React.useState(false);
 
     const handleDrawerOpen = () => {
         setOpen(true);
+    };
+
+    const handleListItemSeleted =(event,index) =>{
+        setSelectedIndex(index)
     };
 
     const handleDrawerClose = () => {
@@ -172,17 +187,21 @@ export default function ResponsiveDrawer() {
                     <Divider />
                     <Link to="/rindmind" className={classes.link}>
                         <MenuList >
-                            <MenuItem button key="News">
-                                <ListItemIcon>{< NewReleases />} </ListItemIcon>
+                            <MenuItem button key="News" 
+                             className={classes.listItem} 
+                             selected = {selectedIndex === 0} 
+                             onClick={(event) => handleListItemSeleted(event,0)}>
+                                <ListItemIcon className={classes.listItem}>{< NewReleases />} </ListItemIcon>
                                 <ListItemText primary="News" />
                             </MenuItem>
                         </MenuList>
                     </Link>
 
                     <Link to="/edu" className={classes.link}>
-                        <MenuList>
-                            <MenuItem button key="edu">
-                                <ListItemIcon>{< Pencil />} </ListItemIcon>
+                        <MenuList button key="edu">
+                            <MenuItem button key="edu" className={classes.listItem} 
+                            selected = {selectedIndex === 1} onClick={(event) => handleListItemSeleted(event,1)}>
+                                <ListItemIcon className={classes.listItem}>{< Pencil />} </ListItemIcon>
                                 <ListItemText primary="Education" />
                             </MenuItem>
                         </MenuList>
@@ -190,8 +209,9 @@ export default function ResponsiveDrawer() {
 
                     <Link to='/apti' className={classes.link}>
                         <MenuList>
-                            <MenuItem>
-                                <ListItemIcon> {<ExamSymbol />} </ListItemIcon>
+                            <MenuItem button key="apti" className={classes.listItem} 
+                            selected = {selectedIndex === 2} onClick={(event) => handleListItemSeleted(event,2)}>
+                                <ListItemIcon className={classes.listItem}> {<ExamSymbol />} </ListItemIcon>
                                 <ListItemText primary="Aptitude" />
                             </MenuItem>
                         </MenuList>
@@ -199,8 +219,9 @@ export default function ResponsiveDrawer() {
 
                     <Link to="/about" className={classes.link}>
                         <MenuList>
-                            <MenuItem button key="About">
-                                <ListItemIcon>{< Place />} </ListItemIcon>
+                            <MenuItem button key="About" className={classes.listItem} 
+                            selected = {selectedIndex === 3} onClick={(event) => handleListItemSeleted(event,3)}>
+                                <ListItemIcon className={classes.listItem}>{< Place />} </ListItemIcon>
                                 <ListItemText primary="About" />
                             </MenuItem>
                         </MenuList>
@@ -209,8 +230,9 @@ export default function ResponsiveDrawer() {
                     <Divider />
                     <Link to="/training" className={classes.link}>
                         <MenuList>
-                            <MenuItem button key="Training">
-                                <ListItemIcon>{< LaptopChromebookIcon />} </ListItemIcon>
+                            <MenuItem button key="Training" className={classes.listItem} 
+                            selected = {selectedIndex === 4} onClick={(event) => handleListItemSeleted(event,4)}>
+                                <ListItemIcon className={classes.listItem}>{< LaptopChromebookIcon />} </ListItemIcon>
                                 <ListItemText primary="Training" />
                             </MenuItem>
                         </MenuList>

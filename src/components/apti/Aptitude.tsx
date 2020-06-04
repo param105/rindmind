@@ -50,19 +50,19 @@ function Timer() {
     )
 }
 
-const Marks= observer(()=>{
+const Marks = observer(() => {
     const aptiStore = useContext(AptiStore)
     return (
-        
+
         <div className="marks">
 
-    <h2 > {aptiStore.getTotalMarks} / {aptiStore.getTotalOutOfMarks} </h2>
+            <h2 > {aptiStore.getTotalMarks} / {aptiStore.getTotalOutOfMarks} </h2>
 
         </div>)
 })
 
 
-const ExamPaper = observer(()=> {
+const ExamPaper = observer(() => {
 
     const [visible, setVisible] = useState(true)
     const apti = useContext(AptiStore)
@@ -82,78 +82,78 @@ const ExamPaper = observer(()=> {
     )
 })
 
-const ExamSection = observer((props:any)=>{
+const ExamSection = observer((props: any) => {
 
-    const [visible, setVisible] = useState(true)
+    const [visible, setVisible] = useState(true);
     const apti = useContext(AptiStore)
 
-    function updateMarks(){
+    function updateMarks() {
         apti.addMarks(props.index)
     }
 
     function handleHeaderClick() {
         setVisible(!visible)
     }
-    return (
-        <div className="section">
-            <div onClick={handleHeaderClick} className="section-header">
-                <h3> {props.section.name} </h3>
-                <div className="marks">
-                    <h3 > {apti.sections[props.index].marks} / {apti.sections[props.index].outOfMarks} </h3>
+        return (
+            <div className="section">
+                <div onClick={handleHeaderClick} className="section-header">
+                    <h3> {props.section.name} </h3>
+                    <div className="marks">
+                        <h3 > {apti.sections[props.index].marks} / {apti.sections[props.index].outOfMarks} </h3>
+                    </div>
+                </div>
+                <div className="section-questions">
+                    {
+                        visible &&
+                        <ul>
+                            {
+                                props.section.questions.map((question: any, index: any) =>
+                                    <ExamQuestion question={question} callback={() => updateMarks()} />
+                                )
+                            }
+
+
+
+                        </ul>
+                    }
                 </div>
             </div>
-            <div className="section-questions">
-                {
-                    visible &&
-                    <ul>
-                        {
-                            props.section.questions.map((question: any, index: any) =>
-                                <ExamQuestion question={question} callback={()=>updateMarks()} />
-                            )
-                        }
-
-
-
-                    </ul>
-                }
-            </div>
-        </div>
-    )
-})
+        )
+    })
 
 
 function ExamQuestion(props: any) {
 
-    const [selected, setSelected] = useState({"answer":"","index":""})
+    const [selected, setSelected] = useState({ "answer": "", "index": "" })
 
-    function handleOptionSelected(option:any,index:any){
-      
-        if(selected.answer =="" && option == props.question.ans){
+    function handleOptionSelected(option: any, index: any) {
+
+        if (selected.answer == "" && option == props.question.ans) {
             props.callback()
         }
-        setSelected({"answer": option,"index":index})
+        setSelected({ "answer": option, "index": index })
 
     }
     return (
-    <div className="exam-question">
-        <li><h3> {props.question.que} </h3></li>
-        <ul>
-            {
-                props.question.options.map((option: React.ReactNode, index: any) =>{
-                    if(selected.answer != "" && selected.answer != props.question.ans && selected.index == index){
-                        return  <li className="wrong-option" onClick={()=>handleOptionSelected(option,index)}> {option} </li>
-                    }else if(selected.answer != "" && option == props.question.ans){
-                        return <li className="correct-option" onClick={()=>handleOptionSelected(option,index)}> {option} </li>
-                    }else{
-                        return <li onClick={()=>handleOptionSelected(option,index)}> {option} </li>
+        <div className="exam-question">
+            <li><h3> {props.question.que} </h3></li>
+            <ul>
+                {
+                    props.question.options.map((option: React.ReactNode, index: any) => {
+                        if (selected.answer != "" && selected.answer != props.question.ans && selected.index == index) {
+                            return <li className="wrong-option" onClick={() => handleOptionSelected(option, index)}> {option} </li>
+                        } else if (selected.answer != "" && option == props.question.ans) {
+                            return <li className="correct-option" onClick={() => handleOptionSelected(option, index)}> {option} </li>
+                        } else {
+                            return <li onClick={() => handleOptionSelected(option, index)}> {option} </li>
+                        }
                     }
-                }
 
-              
-                   
-                )
-            }
-        </ul>
-    </div>);
+
+
+                    )
+                }
+            </ul>
+        </div>);
 }
 

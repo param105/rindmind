@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
 import { red } from '@material-ui/core/colors';
 import { Card, CardActionArea, CardContent, CardMedia,Paper } from '@material-ui/core'
+import newsData from '../data/Data'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -46,10 +47,16 @@ export default function Home() {
        */
     async function fetchAndSetNews(){
         try {
+          
             const url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=de63571ebc714ae6828e37c65bb712bf";
             const response = await fetch(url).catch(e => console.error("Error to fetch data"));
             const data = await response.json().catch(e => console.error("Error to convert to JSON"));;
-            setNewsData(JSON.stringify(data))
+           
+            if(data.status == "error"){
+                setNewsData(newsData)
+            }else{
+                setNewsData(JSON.stringify(data))
+            }    
             console.log(newsData)
         } catch (e) {
             console.error(e)

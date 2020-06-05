@@ -1,18 +1,16 @@
 .about-container{
     display: flex;
     flex-wrap: wrap;
-    background-color:white;
     justify-content: center;
-    padding-top: 3rem;
+    background-color:white;
+    padding-top: 1rem;
 }
 
 .map-container{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0.2rem;
-    background-color:#048FC5;
+    margin: 0.1rem;
   
 }
 
@@ -54,5 +52,19 @@
     }
 
    
+}
+
+@media(max-width:600px){
+   
+    .form{
+        width: 90%;
+    }
+}
+
+@media(max-width:400px){
+  
+    .form{
+        width: 90%;
+    }
 }
 

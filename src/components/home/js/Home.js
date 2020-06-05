@@ -125,7 +125,7 @@ export default function Home() {
 
         <div id="home" >
             <main className="myBody">
-                <img src="https://source.unsplash.com/1600x400/?laptop" alt="Loading.."></img>
+                <img src="https://source.unsplash.com/1200x400/?laptop" alt="Loading.."></img>
 
                 <div className={classes.root}>
                     <Grid container spacing={3}>

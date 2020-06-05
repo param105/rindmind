@@ -1,6 +1,12 @@
+.root{
+  background-color: white;
+}
 
  .myBody{
- background-color: white;
+ width: 100%;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
 }
 
  .myBody img {

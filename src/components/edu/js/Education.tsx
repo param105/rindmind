@@ -24,26 +24,26 @@ export default function Education() {
                     <div className="edu-header">
                         <h1> आईची शाळा </h1>
                     </div>
-                    <div >
+                    <div>
                         <ul className="edu-menu">
                             <li className="tooltip" >
-                                <span className="tooltiptext"> <ChaudaKhadi /> </span>
+                               
                                 <NavLink exact to="/"> चौदाखडी  </NavLink>
                             </li>
                             <li className="tooltip" >
-                                <span className="tooltiptext"> <Words /> </span>
+                               
                                 <NavLink to="/chars" > शब्द ओळख  </NavLink>
                             </li>
                             <li className="tooltip" >
-                                <span className="tooltiptext"> <Numbers /> </span>
+                               
                                 <NavLink to="/numbers"> अंक ओळख </NavLink>
                             </li>
                             <li className="tooltip" >
-                                <span className="tooltiptext"> <Maths /> </span>
+                               
                                 <NavLink to="/maths"> गणिते  </NavLink>
                             </li>
                             <li className="tooltip" >
-                                <span className="tooltiptext"> <MCQTest /> </span>
+                               
                                 <NavLink to="/mcq"> परीक्षा  </NavLink>
                             </li>
                         </ul>

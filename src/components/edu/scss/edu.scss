@@ -1,41 +1,9 @@
 $color-voile : #4051b5;
 
 
-
-
-.tooltip {
-    position: relative;
-    display: flex;
-    width: auto;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-  }
-  
-  /* Tooltip text */
-  .tooltip .tooltiptext {
-    top: 100%;
-    width: auto;
-    visibility: hidden;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-   
-    /* Position the tooltip text - see examples below! */
-    position: absolute;
-    z-index: 1;
-  }
-  
-  /* Show the tooltip text when you mouse over the tooltip container */
-  .tooltip:hover .tooltiptext {
-    visibility: hidden;
-  }
-
-
 .edu-root{
-    align-items: center;
-    background-color: white;
-   
+    display: flex;
+    flex-direction: column;
    
     .edu-header{
         display: flex;
@@ -47,18 +15,14 @@ $color-voile : #4051b5;
     }
 
     .edu-menu{
-        margin-top: 0rem;
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-around;
+        margin-top: 0rem;     
         background-color: gainsboro;
-       
-       
-        li{
-            text-align: center;
-           
-            flex : 1 ;
+          
+        li{   
             list-style: none;
-            padding: 1rem;
             font-size: 2rem;
             .active {
                 color: orangered;
@@ -66,8 +30,8 @@ $color-voile : #4051b5;
                     visibility: hidden;
                   }
             }
-
-
+    
+    
             a{
                 text-decoration: none;
                 &:hover{
@@ -77,12 +41,13 @@ $color-voile : #4051b5;
                
             }
            
-
+    
            
         }
     }
-
 }
+
+
 
 @keyframes fadeInGrayWhite {
     0%   {background-color:gray; }
@@ -104,11 +69,11 @@ $color-voile : #4051b5;
 .data-grid{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     
 
     .CharCard{
-        flex:1;
+        flex:1 1;
         padding: 2rem;
         margin: 0.3rem;
         border: dashed thin;

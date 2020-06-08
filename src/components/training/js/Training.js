@@ -14,7 +14,7 @@ export default function Training() {
         <Task4 />
         <Task3 />
         <Task2 />
-        <Task1 />
+        {/* <Task1 /> */}
       </div>
     </Provider>
 

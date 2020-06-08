@@ -47,7 +47,7 @@ export default function About(props: any) {
       </div>
 
       <div className="profile-container">
-        <div className="LI-profile-badge" data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="parmeshwar-c-5aa39523"><a className="LI-simple-link" href='https://in.linkedin.com/in/parmeshwar-c-5aa39523?trk=profile-badge'>Parmeshwar C.</a></div>
+        <div className="LI-profile-badge" data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="parmeshwar-c-5aa39523"><a className="LI-simple-link" href='https://in.linkedin.com/in/parmeshwar-c-5aa39523?trk=profile-badge'></a></div>
       </div>
 
       <div className="form">

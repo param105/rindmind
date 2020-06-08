@@ -9,9 +9,15 @@ import { Card, CardActionArea, CardContent, CardMedia,Paper } from '@material-ui
 import news from '../data/Data'
 
 const useStyles = makeStyles((theme) => ({
+    image:{
+        margin: 4,
+        padding:4,
+    },
     root: {
         flexGrow: 1,
         margin: 2,
+        padding:2,
+
         '&:hover': {
             padding:1,
          }
@@ -125,7 +131,7 @@ export default function Home() {
 
         <div id="home" >
             <main className="myBody">
-                <img src="https://source.unsplash.com/1200x400/?laptop" alt="Loading.."></img>
+                <img className={classes.image} src="https://source.unsplash.com/600x200/?laptop" alt="Loading.."></img>
 
                 <div className={classes.root}>
                     <Grid container spacing={3}>

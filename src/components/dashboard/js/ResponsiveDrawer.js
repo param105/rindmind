@@ -33,6 +33,7 @@ import Aptitude from "../../apti/Aptitude";
 
 
 
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -134,7 +135,8 @@ export default function ResponsiveDrawer() {
     };
 
     return (
-        <Router>
+   
+        
             <div className={classes.root}>
                 <CssBaseline />
                 <AppBar
@@ -240,9 +242,7 @@ export default function ResponsiveDrawer() {
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
-                    <Switch>
-
-                    
+                    <Switch>       
                         <Route exact path="/rindmind">
                             <Home />
                         </Route>
@@ -262,6 +262,6 @@ export default function ResponsiveDrawer() {
 
                 </main>
             </div>
-        </Router>
+       
     );
 }

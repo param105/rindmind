@@ -1,6 +1,70 @@
-.uploadbox {
+.about-container{
     display: flex;
-    margin-top: 1rem;
+    flex-wrap: wrap;
     justify-content: center;
-    background-color: gainsboro;
+    background-color:white;
+    padding-top: 1rem;
 }
+
+.map-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.1rem;
+  
+}
+
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0.2rem;
+    background-color:#048FC5;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:#048FC5;
+    padding: 0.2rem;
+    margin: 0.2rem;
+
+    input {
+        margin: 1rem;
+        padding: 1rem;
+        text-align: center;
+        min-width: 20rem;
+     
+    }
+    .resizable-text{
+        @extend input;
+        resize: vertical;
+        min-height: 10rem;
+    }
+
+    button {
+        margin: 1rem;
+        padding: 1rem;
+        background-color: rgb(241, 34, 86)
+    }
+
+   
+}
+
+@media(max-width:600px){
+   
+    .form{
+        width: 90%;
+    }
+}
+
+@media(max-width:400px){
+  
+    .form{
+        width: 90%;
+    }
+}
+

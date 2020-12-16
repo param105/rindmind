@@ -1,6 +1,7 @@
 
 body{
   margin: 0px;
+  background-color: white;
 }
 
 html {
@@ -10,7 +11,7 @@ html {
 .App{
   font-size: 1rem;
   width: 100%;
-  background-color: black;
+  background-color: white;
 }
 
 .myNavBar{
@@ -84,7 +85,6 @@ html {
   }
 
   .App-header {
-    background-color:black;
     padding-top: 0.2em;
     display: flex;
     justify-content: center;
@@ -96,7 +96,6 @@ html {
     display: flex;
     flex-direction: row-reverse;
     margin: auto;
-    background-color: black;
   
   }
 }

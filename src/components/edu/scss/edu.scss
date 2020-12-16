@@ -1,0 +1,195 @@
+$color-voile : #4051b5;
+
+
+.edu-root{
+    display: flex;
+    flex-direction: column;
+   
+    .edu-header{
+        display: flex;
+        justify-content: center;
+        background-color: gainsboro;
+        h1{
+            color: $color-voile;
+        }
+    }
+
+    .edu-menu{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-top: 0rem;     
+        background-color: gainsboro;
+          
+        li{   
+            list-style: none;
+            font-size: 2rem;
+            .active {
+                color: orangered;
+                .tooltip .tooltiptext {
+                    visibility: hidden;
+                  }
+            }
+    
+    
+            a{
+                text-decoration: none;
+                &:hover{
+                    color: orangered;
+                   
+                }
+               
+            }
+           
+    
+           
+        }
+    }
+}
+
+
+
+@keyframes fadeInGrayWhite {
+    0%   {background-color:gray; }
+    100% {background-color:white; }
+  }
+
+  @keyframes fadeInWhiteRed {
+    0%   {background-color:white; }
+    100% {background-color:red; }
+  }
+
+  @keyframes fadeInWhiteGreen {
+    0%   {background-color:white; }
+    25% {background-color:green; }
+    50% {background-color:white; }
+    100% {background-color:green; }
+  }
+
+.data-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+
+    .CharCard{
+        flex:1 1;
+        padding: 2rem;
+        margin: 0.3rem;
+        border: dashed thin;
+        font-size: 3rem;
+        text-align: center;
+        text-decoration: none;
+        background-color: white;
+        border-radius: 1rem;
+        animation: fadeInGrayWhite 3s ease ;
+        transition: width 1s;
+      
+     
+        &:hover{
+            border-color: red;
+            color: red;
+        }
+
+        &:active{
+                border-color: red;
+                color: red;
+                
+        }
+
+        ul{
+            
+            list-style: decimal;
+            li{
+                :hover{
+                    color: black;
+                }
+            }
+        }
+    }
+
+        .MCQCard{
+            flex:1;
+            padding: 2rem;
+            margin: 0.3rem;
+            border: dashed thin;
+            font-size: 3rem;
+            text-align: center;
+            text-decoration: none;
+            background-color: white;
+            border-radius: 1rem;
+            min-width: 30%;
+            transition: width 2s;
+    
+            .question{
+             border : 1px solid $color-voile;
+            }
+            ul{     
+               
+                list-style-type: upper-alpha;
+                text-align: center;
+                li{
+                    &:hover{
+                    
+                        border: 1px red dashed;
+                    }
+                }
+
+                .wrongAns{
+                    animation-name: fadeInWhitered;
+                    animation-duration: 1s;
+                    animation-iteration-count: 1;
+                    background-color: red;
+                }
+
+                .correctAns{
+                    animation-name: fadeInWhiteGreen;
+                    animation-duration: 1s;
+                    animation-iteration-count: 1;
+                    background-color: green;
+                }
+            }
+    
+    
+        }
+
+        .MathsCard{
+            @extend .MCQCard;
+
+            &:hover{
+                border-color: red;
+                color: red;
+            }
+    
+            &:active{
+                    border-color: red;
+                    color: red;
+                    
+            }
+
+        }
+}
+
+@media(max-width:800px){
+    .data-grid{
+        .CharCard{
+            flex: 1 1 20%;
+        }
+        .MCQCard{
+            flex : 1 1 40%;
+           
+        }
+    }  
+}
+
+@media(max-width:400px){
+    .data-grid{
+        .CharCard{
+            flex: 1 1 40%;
+        }
+        .MCQCard{
+            flex : 1 1 100%;
+        }
+    }  
+}
+
